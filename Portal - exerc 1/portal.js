@@ -1,6 +1,5 @@
 var http = require('http');
-
-var server = http.createServer( function(req, resp) {
+var server = http.createServer( (req, resp) => {
 
     var categoria = req.url.replace("/","");
 
