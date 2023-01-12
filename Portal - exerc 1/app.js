@@ -1,4 +1,6 @@
 var express = require('express');
+var msg = require('./mod_teste');
+
 var app = express();
 
 app.set('view engine', 'ejs');
@@ -9,4 +11,4 @@ app.get('/formulario_inclusao_noticia', (req, resp) =>  resp.render("admin/form_
 
 app.get('/noticias', (req, resp) =>  resp.render("noticias/noticias"));
 
-app.listen(3000, () => (console.log('teste express')));
+app.listen(3000, () => (console.log(msg())));
