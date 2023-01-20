@@ -1,14 +1,7 @@
-var express = require('express');
-var msg = require('./mod_teste');
+var app = require('./config/server');
 
-var app = express();
+var rotaNoticias = require('./app/routes/noticias')(app);
+var rotaHome = require('./app/routes/home')(app);
+var rotaAddNoticia = require('./app/routes/form_add_noticia')(app);
 
-app.set('view engine', 'ejs');
-
-app.get('/', (req, resp) => resp.render("home/index"));
-
-app.get('/formulario_inclusao_noticia', (req, resp) =>  resp.render("admin/form_add_noticia"));
-
-app.get('/noticias', (req, resp) =>  resp.render("noticias/noticias"));
-
-app.listen(3000, () => (console.log(msg())));
+app.listen(3000, () => (console.log('Server on')));
